@@ -6,6 +6,7 @@ metadata:
     app: magento-web
     k8s-app: magento
 spec:
+  type: NodePort
   ports:
   - name: "http"
     port: 80
@@ -59,8 +60,8 @@ spec:
         - mountPath: /var/www/html/magento2.conf
           name: nginx-config
           subPath: magento2.conf
-        - name: media
-          mountPath: /var/www/html/pub/media
+        - mountPath: /var/www/html/pub/media
+          name: media
         - mountPath: /var/www/html/pub/static
           name: static
       volumes:
